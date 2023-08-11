@@ -1,13 +1,24 @@
-import { Col, Row } from "react-bootstrap"
+import { Col, Container, Card, Button } from "react-bootstrap"
+import { Link } from "react-router-dom"
 
 function NotFoundPage() {
     return (
-        <Col className="col-md-6 col-sm-10 mx-auto mt-3 pt-3 text-center">
-            <Row>
-            <h2>NOT FOUND</h2>
-            </Row>
-        </Col>
-
+        <>
+            <Col sm={10} lg={6} className="mx-auto mt-3 text-center">
+                <Container>
+                    <Card>
+                        <Card.Header>¡UPS!</Card.Header>
+                        <Card.Body>
+                            <Card.Title>No puedes acceder a esta pagina</Card.Title>
+                            <Card.Text>
+                                Presiona el botón para ir a la tienda
+                            </Card.Text>
+                            <Button variant="primary" as={Link} to={'/products'}>Volver a la tienda</Button>
+                        </Card.Body>
+                    </Card>
+                </Container>
+            </Col>
+        </>
     )
 }
 

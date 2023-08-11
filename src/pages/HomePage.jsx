@@ -6,9 +6,9 @@ function HomePage() {
         <>
             <Container>
                 <Row>
-                    <Col className="col-md-6 col-sm-10 mx-auto mt-3 pt-3 text-center">
-                        <h1>¡Welcome to the best web page on the world!</h1>
-                        <Link to="/products"><Button variant="primary">¡Go to store!</Button></Link>
+                    <Col xs={10} className="mx-auto mt-3 pt-3 text-center">
+                        <h1>¡Bienvenido/a a la tienda virtual!</h1>
+                        <Button variant="primary" as={Link} to="/products">¡Ir a la tienda!</Button>
                     </Col>
                 </Row>
             </Container>

@@ -14,6 +14,7 @@ import EditProduct from "../auth/EditProduct";
 /*Components*/
 import Navbar from "../components/Navbar";
 import AuthProvider, { AuthContext } from "../Context/AuthContext";
+import UserPage from "../pages/UserPage";
 
 
 
@@ -34,6 +35,7 @@ function AppRouter() {
                                     <>
                                         <Route path="/upProduct" element={<UpdateProduct />} />
                                         <Route path="/product/edit/:id" element={<EditProduct />} />
+                                        <Route path="/user" element={<UserPage />} />
                                     </>
                                 )}
                                 <Route path="/login" element={<Login />} />

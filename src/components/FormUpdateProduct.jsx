@@ -15,7 +15,7 @@ function FormUpdateProduct() {
     const onSubmit = async (data) => {
         try {
             const response = await upProduct(data)
-            setAlert({ variant: 'success', text: '¡Producto registrado exitosamente!', duration: 500, path: '' })
+            setAlert({ variant: 'success', text: '¡Producto registrado exitosamente!', duration: 1000, path: '/products' })
         } catch (e) {
             console.log(e)
             setAlert({ variant: 'danger', text: registroMessage[e.code] || "Un error ha ocurrido", duration: 0 })
@@ -50,6 +50,14 @@ function FormUpdateProduct() {
                     type={"text"}
                     placeholder={"Descripcion..."}
                     register={{ ...register("description", { required: true, maxLength: 2000 }) }}
+                    errors={errors} />
+
+                <Input
+                    label={"SKU"}
+                    name={"sku"}
+                    type={"number"}
+                    placeholder={"SKU"}
+                    register={{ ...register("sku", { required: true, maxLength: 11 }) }}
                     errors={errors} />
 
                 <Input

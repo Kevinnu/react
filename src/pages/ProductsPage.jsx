@@ -6,18 +6,26 @@ import { Container, Row, Col, Spinner } from 'react-bootstrap';
 function ProductsPage() {
     const [loading, setLoading] = useState(true)
     const [productFirebase, setProductFirebase] = useState([])
+    const [refresh, setRefresh] = useState(false)
+
+    const refreshToDelete = () => {
+        if (refresh) {
+            setRefresh(false)
+        } else {
+            setRefresh(true)
+        }
+    }
 
     useEffect(() => {
         const request = async () => {
             try {
                 const data = await getAllFirebase()
-                console.log(data)
                 setProductFirebase(data.docs)
                 setLoading(false)
             } catch (errors) { console.log(errors) }
         }
         request()
-    }, [])
+    }, [refresh])
 
 
     if (loading) {
@@ -39,6 +47,7 @@ function ProductsPage() {
                     <Row>
                         {productFirebase.map(product =>
                             <ProductCard
+                                refreshToDelete={refreshToDelete}
                                 key={product.id}
                                 {...product.data()}
                                 id={product.id} />)

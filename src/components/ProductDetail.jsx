@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react"
-import Container from 'react-bootstrap/Container';
-import { Row, Col, Image, Button, Card } from 'react-bootstrap';
+import { useState } from "react"
+import {Container, Row, Col, Image, Button, Card } from 'react-bootstrap';
 
-function ProductDetail({ title, price, thumbnail, description }) {
+function ProductDetail({ title, price, thumbnail, description, sku }) {
 
     const [buy, setBuy] = useState(false)
 
@@ -12,7 +11,6 @@ function ProductDetail({ title, price, thumbnail, description }) {
         } else if (buy) {
             setBuy(false)
         }
-
     }
 
     if (buy) {
@@ -21,13 +19,13 @@ function ProductDetail({ title, price, thumbnail, description }) {
                 <Col className="col-md-6 col-sm-12 mx-auto mt-3">
                     <Container>
                         <Card>
-                            <Card.Header>¡Congratulations!</Card.Header>
+                            <Card.Header>¡Felicitaciones!</Card.Header>
                             <Card.Body>
-                                <Card.Title>¡Your buying was completed successfully!</Card.Title>
+                                <Card.Title>¡Tu compra se completo exitosamente!</Card.Title>
                                 <Card.Text>
-                                    if you want go back to see the product press de button
+                                    Si quieres volver a ver el producto presiona el botón
                                 </Card.Text>
-                                <Button variant="primary" onClick={Buy}>Go back</Button>
+                                <Button variant="primary" onClick={Buy}>Volver al producto</Button>
                             </Card.Body>
                         </Card>
                     </Container>
@@ -46,7 +44,7 @@ function ProductDetail({ title, price, thumbnail, description }) {
                                 <Button variant="primary" onClick={Buy}>Comprar</Button>
                                 <br /><br />
                                 <Card>
-                                    <Card.Body>{description}</Card.Body>
+                                    <Card.Body>{description} <br/><br/> <strong>SKU: </strong>{sku || 'pendiente'}</Card.Body>
                                 </Card>
                             </Col>
                         </Row>

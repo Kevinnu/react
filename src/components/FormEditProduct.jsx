@@ -69,7 +69,7 @@ function FormEditProduct() {
                         name={"title"}
                         type={"text"}
                         placeholder={"Ingrese un titulo"}
-                        register={{ ...register("title", { required: true, value: product?.title, onChange: handleOnChange }) }}
+                        register={{ ...register("title", { required: true, value: product?.title }) }}
                         errors={errors} />
 
                     <Input
@@ -77,7 +77,7 @@ function FormEditProduct() {
                         name={"price"}
                         type={"number"}
                         placeholder={"Ingrese precio"}
-                        register={{ ...register("price", { required: true, value: product?.price, onChange: handleOnChange }) }}
+                        register={{ ...register("price", { required: true, value: product?.price }) }}
                         errors={errors} />
 
                     <Input
@@ -89,11 +89,19 @@ function FormEditProduct() {
                         errors={errors} />
 
                     <Input
+                        label={"SKU"}
+                        name={"sku"}
+                        type={"number"}
+                        placeholder={"SKU"}
+                        register={{ ...register("sku", { required: true, value: product?.sku, maxLength: 10 }) }}
+                        errors={errors} />
+
+                    <Input
                         label={"Imagen"}
                         name={"thumbnail"}
                         type={"text"}
                         placeholder={"Ingrese url imagen"}
-                        register={{ ...register("thumbnail", { required: true, value: product?.thumbnail, onChange: handleOnChange }) }}
+                        register={{ ...register("thumbnail", { required: true, value: product?.thumbnail }) }}
                         errors={errors} />
 
                     <ButtonWithLoading variant="primary" type="submit" loading={loading}>Actualizar</ButtonWithLoading>

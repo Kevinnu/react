@@ -1,13 +1,15 @@
 import { useContext, useState } from "react"
 import { useForm } from "react-hook-form"
+import { Link } from "react-router-dom"
+import { Form, Row, Col, Button } from 'react-bootstrap';
+
 import { registerFirebase } from "../Services/authServices"
 import { registroMessage } from "../Utils/ErrorsMessages";
 import AlertMsg from "./AlertMsg";
 import ButtonWithLoading from "./ButtonWithLoading";
 import Input from "./Input";
-import { Form, Row, Col, Button } from 'react-bootstrap';
 import { AuthContext } from "../Context/AuthContext";
-import { Link } from "react-router-dom"
+
 
 function FormRegister() {
 
@@ -18,9 +20,7 @@ function FormRegister() {
     const onSubmit = async (data) => {
         try {
             setLoading(true)
-            console.log("handleSubmit", data)
             const response = await registerFirebase(data)
-            console.log("response", response)
             setAlert({ variant: 'success', text: 'Nuevo usuarios registrado con exito', duration: 2000, path: '/login' })
 
         } catch (e) {
